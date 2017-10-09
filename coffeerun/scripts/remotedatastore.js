@@ -9,7 +9,7 @@
     }
     this.serverUrl = url;
 
-    var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
+    var CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]'; //Displaying all the orders from dashboard to browser
     var get_selector = window.jQuery(CHECKLIST_SELECTOR);
     var server_url = this.serverUrl;
     $.getJSON(server_url, function(json) {
@@ -86,9 +86,11 @@
             type: 'POST',
             url: server_url + '/' + json[i].id + '?_method=DELETE',
             success: function() {
-              // Object was deleted. response body empty.
+              alert("Entry Deleted Successefully");
             },
-            error: function() {}
+            error: function() {
+              alert("Error");
+            }
           });
         }
       }
